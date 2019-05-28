@@ -62,4 +62,10 @@ public class StudentController {
         return student;
     }
 
+
+    @GetMapping("/prometheus")
+    public void endpoint() {
+        studentFeignService.endpoint();
+    }
+
 }
