@@ -1,0 +1,26 @@
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.qq.com:587'
+  smtp_from: '260482352@qq.com'
+  smtp_auth_username: '260482352@qq.com'
+  smtp_auth_password: 'iwpukkzpkbszbijf'
+  
+route:
+  group_interval: 1m
+  repeat_interval: 1m
+  receiver: 'mail-receiver'
+receivers:
+- name: 'mail-receiver'
+  email_configs:
+    - to: 'watson_von@163.com' 
+      headers: { Subject: "[WARN] 报警邮件" }
+
+#如果有serverity为critical的标签，那么serverity为warning的告警先不发，只发critical的告
+#抑制的是某一种高级别的邮件发送，而这个邮件会按照定好的时间间隔一直发送，不会说只发一条就不发了。      
+inhibit_rules:
+    - source_match:
+        severity: 'critical'
+      target_match:
+        severity: 'warning'
+      # Apply inhibition if the alertname is the same.
+      # equal: ['my_sample_counter']
