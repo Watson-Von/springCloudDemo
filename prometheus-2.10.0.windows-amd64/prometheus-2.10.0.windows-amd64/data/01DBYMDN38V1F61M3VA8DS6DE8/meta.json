@@ -1,0 +1,18 @@
+{
+	"ulid": "01DBYMDN38V1F61M3VA8DS6DE8",
+	"minTime": 1559016000000,
+	"maxTime": 1559023200000,
+	"stats": {
+		"numSamples": 153756,
+		"numSeries": 366,
+		"numChunks": 1385,
+		"numBytes": 404981
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01DBYMDN38V1F61M3VA8DS6DE8"
+		]
+	},
+	"version": 1
+}

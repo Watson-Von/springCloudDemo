@@ -1,0 +1,22 @@
+groups:
+- name: test-rule
+  rules:
+  - alert: my_sample_counter
+    expr: my_sample_counter{status="error",} > 10
+    #for语句会使 Prometheus 服务等待指定的时间, 然后执行查询表达式
+    for: 2m
+    labels:
+      severity: 'critical'
+    annotations:
+      summary: "{{$labels.instance}}"
+      description: "接口调用报错超过10次，当前值：{{ $value }}"
+      
+  - alert: my_sample_counter2
+    expr: my_sample_counter{status="error",} > 5
+    #for语句会使 Prometheus 服务等待指定的时间, 然后执行查询表达式
+    for: 30s
+    labels:
+      severity: 'warning'
+    annotations:
+      summary: "{{$labels.instance}}"
+      description: "接口调用报错超过5次，当前值：{{ $value }}"

@@ -1,0 +1,18 @@
+{
+	"ulid": "01DBYCYHQAMVQF5DSJSZ9Z247E",
+	"minTime": 1559008800000,
+	"maxTime": 1559016000000,
+	"stats": {
+		"numSamples": 5576,
+		"numSeries": 328,
+		"numChunks": 328,
+		"numBytes": 60968
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01DBYCYHQAMVQF5DSJSZ9Z247E"
+		]
+	},
+	"version": 1
+}
